@@ -1,0 +1,205 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжковий календар</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">📚Книжковий календар📚</div>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Головна</a></li>
+                <li><a href="#about">Жанри</a></li>
+                <li><a href="#books">Видавництва</a></li>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-text">
+                <h1>Відкрий світ книг!</h1>
+
+                <p>
+                    Ласкаво просимо у світ книг!
+                    Тут можна відкривати нові історії,
+                    знайомитися з літературними жанрами
+                    та дізнаватися про книжкові новинки.
+                </p>
+
+                <a href="#about" class="button">Дізнатися більше</a>
+            </div>
+
+            <img src="IMG_1718"
+                 alt="Книги">
+        </section>
+
+        <section class="about" id="about">
+            <h2>Про проєкт</h2>
+            <p>
+                Книжковий календар допомагає знаходити
+                цікаві книги та обирати, що прочитати наступним.
+            </p>
+        </section>
+    </main>
+
+    <footer id="contacts">
+        <p>© 2026
+         Бойко Анастасія </p>
+    </footer>
+
+</body>
+</html>
+<style> 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E6D6FF;
+    color: black;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #D5B8FF;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #FF1493;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #FF1493;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 55px 7%;
+    background-color: #E6D6FF;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 40px;
+    color: #FF1493;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: black;
+}
+
+.hero img {
+    width: 45%;
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #FF69B4;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #FF1493;
+}
+
+.about {
+    text-align: center;
+    padding: 35px 10%;
+}
+
+.about h2 {
+    color: #FF1493;
+    margin-bottom: 15px;
+}
+
+.about p {
+    color: black;
+}
+
+footer {
+    background-color: #D5B8FF;
+    color: black;
+    text-align: center;
+    padding: 18px;
+}
+
+/* Адаптація для телефонів */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero img {
+        width: 100%;
+    }
+
+    .about {
+        padding: 25px 20px;
+    }
+}
+</style>
