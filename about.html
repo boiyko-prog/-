@@ -1,58 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Про проєкт</title>
+<title>Про проєкт — Книжковий календар</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-    <nav>
-    <a href="index.html">🏠 Головна</a>
-    <a href="about.html">💗 Про проєкт</a>
-    <a href="materials.html">📚 Цікаві матеріали</a>
-</nav>
     margin: 0;
-    font-family: Georgia, serif;
+    font-family: 'Comfortaa', cursive;
     background: linear-gradient(135deg,#ffe1f0,#e6d5ff);
     color: #542b65;
 }
+
 header {
     background: linear-gradient(90deg,#d77cc5,#9670d9);
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 35px 15px;
 }
+
+header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    margin: 0;
+}
+
 nav {
     background: #874d9f;
     text-align: center;
-    padding: 15px;
+    padding: 16px;
 }
+
 nav a {
+    display: inline-block;
     color: white;
     text-decoration: none;
-    margin: 12px;
+    margin: 8px 15px;
+    font-weight: bold;
+    transition: 0.3s;
 }
+
+nav a:hover {
+    color: #ffd2ee;
+    transform: scale(1.1);
+}
+
 main {
     max-width: 850px;
     margin: 40px auto;
-    padding: 25px;
+    padding: 30px;
     background: white;
-    border-radius: 18px;
+    border-radius: 20px;
     line-height: 1.8;
+    box-shadow: 0 5px 18px #9b65aa44;
 }
+
 h2 {
     color: #a044a9;
+    font-family: 'Great Vibes', cursive;
+    font-size: 38px;
 }
+
+p {
+    font-size: 16px;
+}
+
 footer {
     background: #874d9f;
     color: white;
     text-align: center;
     padding: 20px;
+    margin-top: 40px;
 }
+
 @media(max-width:600px) {
-    nav a {display:inline-block;margin:8px;}
-    main {margin:20px;padding:18px;}
+    header h1 {
+        font-size: 42px;
+    }
+
+    nav a {
+        margin: 8px;
+    }
+
+    main {
+        margin: 20px;
+        padding: 18px;
+    }
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -61,12 +106,13 @@ footer {
 </header>
 
 <nav>
-<a href="index.html">Головна</a>
-<a href="about.html">Про проєкт</a>
-<a href="materials.html">Цікаві матеріали</a>
+<a href="index.html">🏠 Головна</a>
+<a href="about.html">💗 Про проєкт</a>
+<a href="materials.html">📚 Цікаві матеріали</a>
 </nav>
 
 <main>
+
 <h2>📚 Мета створення сайту</h2>
 <p>
 «Книжковий календар» — це тематичний вебсайт,
@@ -79,7 +125,9 @@ footer {
 <p>
 На сайті розміщено книжкову добірку,
 інформацію про літературні твори,
-інтерактивний календар та актуальний час.
+інтерактивний календар та цікаві книжкові матеріали.
+Також можна отримати приємне повідомлення
+за допомогою спеціальної кнопки.
 </p>
 
 <h2>🌸 Чому саме книги?</h2>
@@ -91,12 +139,17 @@ footer {
 </p>
 
 <h2>💜 Автор проєкту</h2>
-<p>Сайт створено в межах навчальної практичної роботи
-з вебтехнологій.</p>
+<p>
+Сайт створено в межах навчальної практичної роботи
+з вебтехнологій. Він є невеликим простором,
+присвяченим любові до книг і читання.
+</p>
+
 </main>
 
 <footer>
-<p>Книжковий календар © 2026</p>
+<p>📚 Книжковий календар © 2026</p>
+<p>Створено з любов'ю до читання 💗</p>
 </footer>
 
 </body>
