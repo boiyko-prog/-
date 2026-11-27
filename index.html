@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Книжковий календар</title>
+<style>
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ffe1f0, #e6d5ff);
+    color: #542b65;
+}
+header {
+    background: linear-gradient(90deg, #d77cc5, #9670d9);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+nav {
+    background: #874d9f;
+    text-align: center;
+    padding: 15px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
+}
+nav a:hover {
+    color: #ffd2ee;
+}
+section {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+}
+h2 {
+    color: #a044a9;
+}
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+}
+.book {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px #9b65aa44;
+}
+.book img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+button {
+    background: #b66acb;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#clock {
+    font-size: 26px;
+    font-weight: bold;
+}
+.calendar {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+}
+footer {
+    background: #874d9f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 8px;
+    }
+    header h1 {
+        font-size: 26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📚 Книжковий календар 📚</h1>
+<p>Відкрий світ книг та нових історій!</p>
+</header>
+
+<nav>
+<a href="index.html">Головна</a>
+<a href="about.html">Про проєкт</a>
+<a href="materials.html">Цікаві матеріали</a>
+</nav>
+
+<section>
+<h2>✨ Ласкаво просимо!</h2>
+<p>Цей сайт створений для всіх, хто любить читати,
+відкривати нові книжки та знаходити натхнення
+на сторінках улюблених творів.</p>
+</section>
+
+<section>
+<h2>🌸 Книжкова добірка</h2>
+<div class="books">
+
+<div class="book">
+<img src="images/book1.jpg" alt="Книга">
+<h3>Гаррі Поттер</h3>
+<p>Джоан Роулінг</p>
+</div>
+
+<div class="book">
+<img src="images/book2.jpg" alt="Книга">
+<h3>Маленький принц</h3>
+<p>Антуан де Сент-Екзюпері</p>
+</div>
+
+<div class="book">
+<img src="images/book3.jpg" alt="Книга">
+<h3>Буремний перевал</h3>
+<p>Емілі Бронте</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>🗓️ Календар</h2>
+<div class="calendar">
+<h3 id="date"></h3>
+<p id="calendarDate"></p>
+</div>
+</section>
+
+<section>
+<h2>🕒 Поточний час</h2>
+<p id="clock"></p>
+</section>
+
+<section>
+<h2>💌 Книжкове побажання</h2>
+<button onclick="showMessage()">Відкрити повідомлення</button>
+</section>
+
+<footer>
+<p>📚 Книжковий календар © 2026</p>
+</footer>
+
+<script>
+function updateTime() {
+    const now = new Date();
+    document.getElementById("clock").textContent =
+    now.toLocaleTimeString("uk-UA");
+
+    document.getElementById("date").textContent =
+    now.toLocaleDateString("uk-UA", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+}
+updateTime();
+setInterval(updateTime, 1000);
+
+function showMessage() {
+    alert("Кожна прочитана книга — це нова пригода! 💗");
+}
+</script>
+
+</body>
+</html>
