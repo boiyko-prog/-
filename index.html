@@ -1,99 +1,182 @@
 
 <!DOCTYPE html>
+<html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Книжковий календар</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-    <nav>
-    <a href="index.html">🏠 Головна</a>
-    <a href="about.html">💗 Про проєкт</a>
-    <a href="materials.html">📚 Цікаві матеріали</a>
-</nav>
     margin: 0;
-    font-family: Georgia, serif;
+    font-family: 'Comfortaa', cursive;
     background: linear-gradient(135deg, #ffe1f0, #e6d5ff);
     color: #542b65;
 }
+
 header {
     background: linear-gradient(90deg, #d77cc5, #9670d9);
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 35px 15px;
 }
+
+header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    margin: 0;
+}
+
+header p {
+    font-size: 16px;
+}
+
 nav {
     background: #874d9f;
     text-align: center;
-    padding: 15px;
+    padding: 16px;
 }
+
 nav a {
     color: white;
     text-decoration: none;
-    margin: 12px;
+    margin: 10px 15px;
+    font-weight: bold;
 }
+
 nav a:hover {
     color: #ffd2ee;
+    text-decoration: underline;
 }
+
 section {
     max-width: 1000px;
     margin: 30px auto;
     padding: 20px;
     text-align: center;
 }
+
 h2 {
     color: #a044a9;
+    font-family: 'Great Vibes', cursive;
+    font-size: 38px;
 }
+
 .books {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
+
 .book {
     background: white;
     padding: 15px;
     border-radius: 15px;
     box-shadow: 0 4px 12px #9b65aa44;
+    transition: 0.3s;
 }
+
+.book:hover {
+    transform: translateY(-6px);
+}
+
 .book img {
     width: 100%;
     height: 230px;
     object-fit: cover;
     border-radius: 10px;
 }
+
 button {
-    background: #b66acb;
+    background: linear-gradient(90deg, #d77cc5, #9670d9);
     color: white;
     border: none;
     padding: 12px 22px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
+    font-family: 'Comfortaa', cursive;
 }
-#clock {
-    font-size: 26px;
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Календар у кутку */
+
+.calendar-widget {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 245px;
+    background: white;
+    padding: 13px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #683b7844;
+    z-index: 10;
+    text-align: center;
+}
+
+.calendar-title {
+    color: #a044a9;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+}
+
+.calendar-grid div {
+    padding: 6px 2px;
+    font-size: 11px;
+    border-radius: 6px;
+}
+
+.weekday {
+    color: #a044a9;
     font-weight: bold;
 }
-.calendar {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 400px;
-    margin: auto;
+
+.today {
+    background: #c77bd1;
+    color: white;
+    font-weight: bold;
 }
+
 footer {
     background: #874d9f;
     color: white;
     text-align: center;
     padding: 20px;
 }
-@media(max-width:600px) {
+
+@media(max-width: 600px) {
+    header h1 {
+        font-size: 40px;
+    }
+
     nav a {
         display: inline-block;
         margin: 8px;
     }
-    header h1 {
-        font-size: 26px;
+
+    .calendar-widget {
+        position: static;
+        margin: 15px auto;
+        width: 245px;
+    }
+
+    section {
+        padding: 12px;
     }
 }
 </style>
@@ -107,36 +190,46 @@ footer {
 </header>
 
 <nav>
-<a href="index.html">Головна</a>
-<a href="about.html">Про проєкт</a>
-<a href="materials.html">Цікаві матеріали</a>
+<a href="index.html">🏠 Головна</a>
+<a href="about.html">💗 Про проєкт</a>
+<a href="materials.html">📚 Цікаві матеріали</a>
 </nav>
+
+<!-- Актуальний календар -->
+
+<div class="calendar-widget">
+    <div class="calendar-title" id="monthYear"></div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+</div>
 
 <section>
 <h2>✨ Ласкаво просимо!</h2>
-<p>Цей сайт створений для всіх, хто любить читати,
+<p>
+Цей сайт створений для всіх, хто любить читати,
 відкривати нові книжки та знаходити натхнення
-на сторінках улюблених творів.</p>
+на сторінках улюблених творів.
+</p>
 </section>
 
 <section>
 <h2>🌸 Книжкова добірка</h2>
+
 <div class="books">
 
 <div class="book">
-<img src="images/book1.jpg" alt="Книга">
+<img src="images/book1.jpg" alt="Гаррі Поттер">
 <h3>Гаррі Поттер</h3>
 <p>Джоан Роулінг</p>
 </div>
 
 <div class="book">
-<img src="images/book2.jpg" alt="Книга">
+<img src="images/book2.jpg" alt="Маленький принц">
 <h3>Маленький принц</h3>
 <p>Антуан де Сент-Екзюпері</p>
 </div>
 
 <div class="book">
-<img src="images/book3.jpg" alt="Книга">
+<img src="images/book3.jpg" alt="Буремний перевал">
 <h3>Буремний перевал</h3>
 <p>Емілі Бронте</p>
 </div>
@@ -145,47 +238,87 @@ footer {
 </section>
 
 <section>
-<h2>🗓️ Календар</h2>
-<div class="calendar">
-<h3 id="date"></h3>
-<p id="calendarDate"></p>
-</div>
-</section>
-
-<section>
-<h2>🕒 Поточний час</h2>
-<p id="clock"></p>
-</section>
-
-<section>
 <h2>💌 Книжкове побажання</h2>
-<button onclick="showMessage()">Відкрити повідомлення</button>
+<p>Натисни кнопку та отримай приємне повідомлення!</p>
+<button onclick="showMessage()">Відкрити повідомлення ✨</button>
 </section>
 
 <footer>
 <p>📚 Книжковий календар © 2026</p>
+<p>Створено з любов'ю до читання 💗</p>
 </footer>
 
 <script>
-function updateTime() {
-    const now = new Date();
-    document.getElementById("clock").textContent =
-    now.toLocaleTimeString("uk-UA");
 
-    document.getElementById("date").textContent =
-    now.toLocaleDateString("uk-UA", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
+// Створення актуального календаря
+
+function createCalendar() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const today = now.getDate();
+
+    const months = [
+        "Січень", "Лютий", "Березень", "Квітень",
+        "Травень", "Червень", "Липень", "Серпень",
+        "Вересень", "Жовтень", "Листопад", "Грудень"
+    ];
+
+    document.getElementById("monthYear").textContent =
+        months[month] + " " + year;
+
+    const grid = document.getElementById("calendarGrid");
+    grid.innerHTML = "";
+
+    const weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
+
+    weekdays.forEach(day => {
+        const div = document.createElement("div");
+        div.textContent = day;
+        div.className = "weekday";
+        grid.appendChild(div);
     });
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const offset = (firstDay + 6) % 7;
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < offset; i++) {
+        grid.appendChild(document.createElement("div"));
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+        const div = document.createElement("div");
+        div.textContent = day;
+
+        if (day === today) {
+            div.className = "today";
+        }
+
+        grid.appendChild(div);
+    }
 }
-updateTime();
-setInterval(updateTime, 1000);
+
+createCalendar();
+
+// Спливаюче повідомлення
 
 function showMessage() {
-    alert("Кожна прочитана книга — це нова пригода! 💗");
+    const messages = [
+        "Кожна книга відкриває новий світ! 📖",
+        "Читай, мрій та надихайся! 💗",
+        "Нехай кожен день буде сповнений пригод! 🌸",
+        "У кожній книзі прихована своя історія! ✨"
+    ];
+
+    const random = Math.floor(Math.random() * messages.length);
+
+    alert(messages[random]);
 }
+
 </script>
 
 </body>
 </html>
+
